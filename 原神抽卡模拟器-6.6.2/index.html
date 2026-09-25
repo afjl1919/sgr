@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script>
+			// 1. 解决 globalThis (ES2020)
+			if (typeof globalThis === 'undefined') {
+				window.globalThis = window;
+			}
+
+			// 2. 解决 String.prototype.replaceAll (ES2021)
+			if (!String.prototype.replaceAll) {
+				String.prototype.replaceAll = function(search, replacement) {
+					// 如果 search 是字符串，转为全局正则
+					if (typeof search === 'string') {
+						return this.replace(new RegExp(search, 'g'), replacement);
+					}
+					// 如果 search 是正则
+					if (search instanceof RegExp) {
+						if (!search.global) {
+							throw new TypeError('replaceAll must be called with a global RegExp');
+						}
+						return this.replace(search, replacement);
+					}
+					// 其他类型（如 undefined 或 null）转为字符串处理
+					return this.replace(new RegExp(String(search), 'g'), replacement);
+				};
+			}
+		</script>
+
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no"
+		/>
+		<meta property="og:type" content="website" />
+		<meta name="author" content="Local fork based on AguzzTN54 project" />
+		<meta name="robots" content="noindex, nofollow" />
+		<meta name="language" content="English" />
+		<title>Local Wish Simulator</title>
+
+		<link rel="stylesheet" href="/icons.css" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+		<meta name="msapplication-TileColor" content="#2d89ef" />
+		<meta name="theme-color" content="#ffffff" />
+
+		
+		<link rel="modulepreload" href="/internal/immutable/entry/start.c200b64b.js">
+		<link rel="modulepreload" href="/internal/immutable/chunks/index.0cfe4561.js">
+		<link rel="modulepreload" href="/internal/immutable/chunks/singletons.d76a722b.js">
+		<link rel="modulepreload" href="/internal/immutable/chunks/index.7042fe47.js">
+		<link rel="modulepreload" href="/internal/immutable/entry/app.b572b685.js">
+		<link rel="modulepreload" href="/internal/immutable/chunks/preload-helper.a4192956.js">
+	</head>
+	<body>
+		<div id="svelte" class="svelte">
+			<script>
+				{
+					__sveltekit_1ydvot6 = {
+						base: "",
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/internal/immutable/entry/start.c200b64b.js"),
+						import("/internal/immutable/entry/app.b572b685.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
