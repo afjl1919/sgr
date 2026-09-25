@@ -1,0 +1,1 @@
+const o={}.VITE_HOST||"",a=o.replace(/^\/|\/$/g,""),t={}.VITE_APP_TITLE||"Local Wish Simulator",T={}.VITE_DESCRIPTION||"Local/offline-friendly wish simulator fork prepared for APK packaging.",c={}.VITE_KEYWORDS||"wish simulator, local, offline, sveltekit",s={}.VITE_API_HOST||"",l=s.replace(/^\/|\/$/g,"");export{t as A,T as D,a as H,c as K,l as a};

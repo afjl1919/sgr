@@ -1,0 +1,1 @@
+import{S as e,i as t,s,o as a}from"../chunks/index.0cfe4561.js";function i(n){return a(()=>window.location.replace(new URL("../../../",import.meta.url).href)),[]}class c extends e{constructor(o){super(),t(this,o,i,null,s,{})}}export{c as component};
